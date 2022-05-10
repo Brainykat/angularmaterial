@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+
+const routes : Routes =[
+  {path: 'demo', loadChildren:() => import('./demo/demo.module').then(m=>m.DemoModule)},
+  {path: '**', redirectTo:'demo'}
+];
 
 @NgModule({
   declarations: [
@@ -15,9 +18,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCheckboxModule
+    RouterModule.forRoot(routes),
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
