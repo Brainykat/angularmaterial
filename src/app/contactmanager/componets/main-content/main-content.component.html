@@ -17,14 +17,15 @@
                         </p>
                     </mat-tab>
                     <mat-tab label="Notes"> 
-                        <mat-list>
+                        <!-- <mat-list>
                             <h3 matSubheader>Notes</h3>
                             <mat-list-item *ngFor="let note of user.notes">
                                <mat-icon matListIcon>note</mat-icon>
                                <h4 matLine>{{note.title}}</h4>
                                <p matLine class="demo-2"> {{note.date | date:'medium'}} </p>
                             </mat-list-item>
-                         </mat-list>
+                         </mat-list> -->
+                         <app-notes [notes]="user.notes"></app-notes>
                     </mat-tab>
                   </mat-tab-group>
                 

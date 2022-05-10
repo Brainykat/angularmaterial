@@ -11,6 +11,7 @@ import { MaterialModule } from '../shared/material.module';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NotesComponent } from './componets/notes/notes.component';
 
 const routes: Routes = [
   {
@@ -29,7 +30,8 @@ const routes: Routes = [
     ContactmanagerAppComponent,
     ToolbarComponent,
     MainContentComponent,
-    SidenavComponent    
+    SidenavComponent,
+    NotesComponent  
   ],
   providers:[
     UserService
