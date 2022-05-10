@@ -8,7 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../shared/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NotesComponent } from './componets/notes/notes.component';
@@ -33,7 +33,8 @@ const routes: Routes = [
     MainContentComponent,
     SidenavComponent,
     NotesComponent,
-    NewContactDialogComponent  
+    NewContactDialogComponent,
+    
   ],
   providers:[
     UserService
@@ -44,7 +45,8 @@ const routes: Routes = [
     FlexLayoutModule,
     MaterialModule,
     FormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ReactiveFormsModule
   ]
 })
 export class ContactmanagerModule { }
