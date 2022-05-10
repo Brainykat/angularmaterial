@@ -10,9 +10,24 @@
                 <mat-card-subtitle>birthday {{user.birthDate | date:'d LLL'}}</mat-card-subtitle>
               </mat-card-header>
               <mat-card-content>
-                <p>
-                  {{user.bio}}
-                </p>
+                <mat-tab-group>
+                    <mat-tab label="Bio"> 
+                        <p>
+                            {{user.bio}}
+                        </p>
+                    </mat-tab>
+                    <mat-tab label="Notes"> 
+                        <mat-list>
+                            <h3 matSubheader>Notes</h3>
+                            <mat-list-item *ngFor="let note of user.notes">
+                               <mat-icon matListIcon>note</mat-icon>
+                               <h4 matLine>{{note.title}}</h4>
+                               <p matLine class="demo-2"> {{note.date | date:'medium'}} </p>
+                            </mat-list-item>
+                         </mat-list>
+                    </mat-tab>
+                  </mat-tab-group>
+                
               </mat-card-content>
         </mat-card>
     </div>
