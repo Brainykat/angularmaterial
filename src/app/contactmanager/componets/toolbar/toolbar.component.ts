@@ -16,8 +16,11 @@ export class ToolbarComponent implements OnInit {
   ngOnInit(): void {
   }
   openAddContactDialog():void{
-    this.dialog.open(NewContactDialogComponent,{
+    let dialogRef = this.dialog.open(NewContactDialogComponent,{
       width:'400px'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('I was closed!',result);
     })
   }
 }
