@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NotesComponent } from './componets/notes/notes.component';
+import { NewContactDialogComponent } from './componets/new-contact-dialog/new-contact-dialog.component';
 
 const routes: Routes = [
   {
@@ -31,7 +32,8 @@ const routes: Routes = [
     ToolbarComponent,
     MainContentComponent,
     SidenavComponent,
-    NotesComponent  
+    NotesComponent,
+    NewContactDialogComponent  
   ],
   providers:[
     UserService
