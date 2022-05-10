@@ -1,10 +1,18 @@
 .flex-container{
     display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }
 
-.flex-items{
+@media all and(max-width:800px){
+    .flex-container{
+        justify-content: flex-start;
+    }
+}
+.flex-item{
     width: 200px;
     height: 250px;
+    margin-top: 5px;
 
     background: tomato;
     color: white;
