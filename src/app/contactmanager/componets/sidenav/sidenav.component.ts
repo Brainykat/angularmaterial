@@ -1,5 +1,6 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from '../../models/user';
@@ -21,6 +22,8 @@ export class SidenavComponent implements OnInit {
     private userService: UserService,
     private router:Router) { }
   
+    @ViewChild(MatSidenav) sidenav:MatSidenav | undefined;
+
   ngOnInit(): void {
     this.breakPointObserver
     //.observe([Breakpoints.Small])
@@ -31,9 +34,17 @@ export class SidenavComponent implements OnInit {
 
     this.users = this.userService.Users;
     this.userService.loadAll();
+
     this.userService.Users.subscribe( data => {
         //console.log(data);
-        if(data.length > 0) this.router.navigate(['/contactmanager', data[0].id]);
+        // if(data.length > 0) this.router.navigate(['/contactmanager', data[0].id]);
+      });
+
+      this.router.events.subscribe(() => {
+        if(this.isScreenSmall){
+          //Close side nav
+          this.sidenav?.close();
+        }
       });
   }
 
