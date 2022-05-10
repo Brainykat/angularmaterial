@@ -32,4 +32,10 @@ export class UserService {
       console.log(error);
     })
   }
+  // getUserById(id:number):Observable<User>{
+
+  // }
+  getUserById(id:number){
+    return this.dataStore.users.find(x=>x.id == id);
+  }
 }
